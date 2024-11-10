@@ -47,6 +47,8 @@ const Assessment = () => {
       newAssessments[selectedJob] = [];
     }
 
+    const randomId = Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000;
+
     if (editingAssessmentId !== null) {
       newAssessments[selectedJob] = newAssessments[selectedJob].map(
         (assessment) =>
@@ -56,7 +58,7 @@ const Assessment = () => {
       );
     } else {
       newAssessments[selectedJob].push({
-        id: Date.now(),
+        id: randomId,
         questions,
         createdAt: new Date().toISOString(),
       });
@@ -65,6 +67,28 @@ const Assessment = () => {
     setAssessments(newAssessments);
     setIsModalOpen(false);
     setEditingAssessmentId(null);
+  };
+
+  const handleUpdateAssignment = (index, updatedData) => {
+    const newAssessments = { ...assessments };
+    
+    if (index === -1) {
+      // Full array update (for deletion)
+      if (Array.isArray(updatedData) && updatedData.length === 0) {
+        // If the array is empty after deletion, remove the job key entirely
+        delete newAssessments[selectedJob];
+      } else {
+        newAssessments[selectedJob] = updatedData;
+      }
+    } else {
+      // Single assignment update
+      if (!newAssessments[selectedJob]) {
+        newAssessments[selectedJob] = [];
+      }
+      newAssessments[selectedJob][index] = updatedData;
+    }
+    
+    setAssessments(newAssessments);
   };
 
   return (
@@ -325,6 +349,7 @@ const Assessment = () => {
         isOpen={showSavedAssignments}
         onClose={() => setShowSavedAssignments(false)}
         assignments={assessments[selectedJob] || []}
+        onUpdateAssignment={handleUpdateAssignment}
       />
     </div>
   );

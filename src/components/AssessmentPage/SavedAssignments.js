@@ -57,7 +57,7 @@ const SavedAssignments = ({ isOpen, onClose, assignments = [], onUpdateAssignmen
         ...prev,
         [`${assessmentIndex}-${questionIndex}`]: false
       }));
-    }, 800);
+    }, 1000);
   };
 
   const handleEditQuestion = (assessmentIndex, questionIndex, updatedText, optionIndex = null) => {
@@ -108,6 +108,10 @@ const SavedAssignments = ({ isOpen, onClose, assignments = [], onUpdateAssignmen
     newAssignments[assessmentIndex] = updatedAssignment;
     setLocalAssignments(newAssignments);
     
+    setExpandedAssignments(prev => ({
+      ...prev,
+      [assessmentIndex]: true
+    }));
     
     if (typeof onUpdateAssignment === 'function') {
       onUpdateAssignment(assessmentIndex, updatedAssignment);
@@ -124,11 +128,11 @@ const SavedAssignments = ({ isOpen, onClose, assignments = [], onUpdateAssignmen
       const newAssignments = localAssignments.filter((_, index) => index !== assignmentToDelete);
       setLocalAssignments(newAssignments);
       if (typeof onUpdateAssignment === 'function') {
-        onUpdateAssignment(null, newAssignments);
+        onUpdateAssignment(-1, newAssignments);
       }
+      setDeleteModalOpen(false);
+      setAssignmentToDelete(null);
     }
-    setDeleteModalOpen(false);
-    setAssignmentToDelete(null);
   };
 
   const buttonStyle = {
