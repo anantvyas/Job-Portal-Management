@@ -36,23 +36,21 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Always start with content hidden
+    window.scrollTo(0, 0);
+    
     setShowContent(false);
+    setShowWelcome(false);
+    setHideScrollButton(false);
 
-    // Use requestAnimationFrame to ensure the initial hidden state is rendered
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        setShowContent(true);
-      });
-    });
+    const timer = setTimeout(() => {
+      setShowContent(true);
+    }, 100);
 
-    // Add scroll event listener
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const welcomeSection = document.getElementById("welcome-section");
       if (welcomeSection) {
-        const welcomePosition =
-          welcomeSection.offsetTop - window.innerHeight / 1.5;
+        const welcomePosition = welcomeSection.offsetTop - window.innerHeight / 1.5;
         if (scrollPosition > welcomePosition) {
           setShowWelcome(true);
           setHideScrollButton(true);
@@ -67,8 +65,9 @@ const Home = () => {
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      clearTimeout(timer);
     };
-  }, []); // Empty dependency array ensures this runs once on mount
+  }, []);
 
   return (
     <div
@@ -98,7 +97,7 @@ const Home = () => {
                 width: "100px",
                 height: "100px",
                 transform: `translateX(${showContent ? "0" : "-100vw"})`,
-                transition: "transform 1.5s ease-out",
+                transition: "transform 1s ease-out",
                 marginRight: "20px",
                 objectFit: "cover",
                 alignSelf: "center",
@@ -112,6 +111,8 @@ const Home = () => {
               style={{
                 fontFamily: "Arial, sans-serif",
                 fontSize: "3rem",
+                transform: `translateX(${showContent ? "0" : "+100vw"})`,
+                transition: "transform 1s ease-out",
                 color: "#FF4500",
                 fontWeight: "bold",
                 margin: 0,
@@ -127,14 +128,16 @@ const Home = () => {
                 fontFamily: "Arial, sans-serif",
                 fontSize: "2rem",
                 color: "#000000",
+                transform: `translateX(${showContent ? "0" : "+100vw"})`,
+                transition: "transform 1.5s ease-out",
                 fontWeight: "normal",
                 margin: 0,
                 textAlign: "center",
                 lineHeight: "1",
-                paddingBottom: "5px",
+                paddingBottom: "4px",
               }}
             >
-              Remote Teams made easy
+              REMOTE TEAMS MADE EASY
             </h2>
           </div>
         </div>

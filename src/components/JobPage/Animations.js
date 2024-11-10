@@ -12,7 +12,7 @@ export const modalOverlay = {
     right: 0,
     bottom: 0,
     backgroundColor: "rgba(0, 0, 0, 0.7)",
-    backdropFilter: "blur(5px)",
+    backdropFilter: "blur(5px) brightness(90%)",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
