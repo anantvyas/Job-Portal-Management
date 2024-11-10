@@ -37,7 +37,7 @@ const EditModal = ({ job, onClose, onUpdate }) => {
           }
           placeholder="Job Title"
           style={{
-            width: "100%",
+            width: "95%",
             padding: "10px",
             marginBottom: "15px",
             borderRadius: "5px",
@@ -54,7 +54,7 @@ const EditModal = ({ job, onClose, onUpdate }) => {
           }
           placeholder="Job Description"
           style={{
-            width: "100%",
+            width: "95%",
             padding: "10px",
             marginBottom: "20px",
             borderRadius: "5px",

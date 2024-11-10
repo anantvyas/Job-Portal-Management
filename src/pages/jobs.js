@@ -119,10 +119,7 @@ const Jobs = () => {
     setJobs(jobs.filter((job) => job.id !== id));
   };
 
-  const startEditing = (job) => {
-    setEditingId(job.id);
-    setNewJob({ title: job.title, description: job.description });
-  };
+  
 
   const handleUpdate = (updatedDetails) => {
     setJobs(
