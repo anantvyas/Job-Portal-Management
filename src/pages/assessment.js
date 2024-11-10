@@ -205,9 +205,9 @@ const Assessment = () => {
                 fontSize: "1.1rem",
               }}
             >
-              <MenuItem sx = {{maxWidth:"80%"}} value="">Select a job position</MenuItem>
+              <MenuItem sx = {{maxWidth:"100%"}} value="">Select a job position</MenuItem>
               {jobs.map((job) => (
-                <MenuItem sx = {{maxWidth:"80%"}} key={job.id} value={job.id}>
+                <MenuItem sx = {{maxWidth:"100%"}} key={job.id} value={job.id}>
                   {job.title}
                 </MenuItem>
               ))}
