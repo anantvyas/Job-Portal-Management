@@ -193,7 +193,9 @@ const SavedAssignments = ({ isOpen, onClose, assignments = [], onUpdateAssignmen
               <Box sx={{
                 display: 'flex',
                 justifyContent: 'space-between',
-                alignItems: 'center'
+                alignItems: 'center',
+                flexDirection: { xs: 'column', sm: 'row' },
+                gap: { xs: 1, sm: 0 }
               }}>
                 <Box>
                   <Typography variant="h6" sx={{ mb: 1 }}>
