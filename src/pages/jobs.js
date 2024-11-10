@@ -225,7 +225,6 @@ const Jobs = () => {
           padding: "20px",
           backgroundColor: "#1A1F2B",
           minHeight: "100vh",
-          borderRadius: "15px",
           display: "flex",
           alignItems: "center",
         }}

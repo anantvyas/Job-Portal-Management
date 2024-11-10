@@ -117,7 +117,7 @@ const Home = () => {
                 fontWeight: "bold",
                 margin: 0,
                 textAlign: "left",
-                lineHeight: "1",
+                lineHeight: "0.8",
                 paddingTop: "5px",
               }}
             >
@@ -137,7 +137,11 @@ const Home = () => {
                 paddingBottom: "4px",
               }}
             >
-              REMOTE TEAMS MADE EASY
+              REMOTE TEAMS <span style={{ 
+                opacity: showContent ? 1 : 0, 
+                transition: "opacity 2s ease-out", 
+                transitionDelay: "1.6s" 
+              }}>MADE EASY</span>
             </h2>
           </div>
         </div>
