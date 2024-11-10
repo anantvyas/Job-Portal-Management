@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useLocalStorage from "../hooks/useLocalStorage";
@@ -7,6 +6,7 @@ import SaveIcon from "@mui/icons-material/Save";
 import AddQuestion from "../components/AssessmentPage/AddQuestion";
 import SavedAssignments from "../components/AssessmentPage/SavedAssignments";
 import { Box } from "@mui/material";
+import { Select, MenuItem } from "@mui/material";
 
 const Assessment = () => {
   const navigate = useNavigate();
@@ -71,9 +71,12 @@ const Assessment = () => {
     <div
       style={{
         padding: "20px",
+        width: "100%",
         backgroundColor: "#1A1F2B",
         minHeight: "100vh",
         position: "relative",
+        margin: 0,
+        boxSizing: "border-box",
       }}
     >
       <button
@@ -104,6 +107,7 @@ const Assessment = () => {
       {/* Main Content */}
       <div
         style={{
+          margin: "auto",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -178,30 +182,37 @@ const Assessment = () => {
               marginBottom: "30px",
             }}
           >
-            <select
+            <Select
               value={selectedJob}
               onChange={(e) => setSelectedJob(e.target.value)}
-              style={{
+              displayEmpty
+              sx={{
                 width: "100%",
-                padding: "15px",
                 backgroundColor: "#374151",
                 color: "#FFFFFF",
-                border: "1px solid #4B5563",
-                borderRadius: "8px",
+                "& .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#4B5563",
+                },
+                "& .MuiSvgIcon-root": {
+                  color: "#FFFFFF",
+                },
+                "&:hover .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#6B7280",
+                },
+                "& .MuiSelect-select": {
+                  padding: "15px",
+                },
                 fontSize: "1.1rem",
-                outline: "none",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-                boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
               }}
             >
-              <option value="">Select a job position</option>
+              <MenuItem sx = {{maxWidth:"80%"}} value="">Select a job position</MenuItem>
               {jobs.map((job) => (
-                <option key={job.id} value={job.id}>
+                <MenuItem sx = {{maxWidth:"80%"}} key={job.id} value={job.id}>
                   {job.title}
-                </option>
+                </MenuItem>
               ))}
-            </select>
+            </Select>
+
           </div>
 
           {/* Action Buttons */}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { modalOverlay } from "../JobPage/Animations";
-
+import { Grid } from "@mui/material";
 export const CandidateModal = ({ candidate, onClose, onStatusUpdate }) => {
     const handleStatusChange = (e) => {
       const newStatus = e.target.value;
@@ -11,8 +11,7 @@ export const CandidateModal = ({ candidate, onClose, onStatusUpdate }) => {
     if (!candidate) return null;
 
     return (
-      <div style={modalOverlay}>
-        <div
+      <div style={modalOverlay}><div
           style={{
             backgroundColor: "#2D3748",
             padding: "30px",
@@ -48,19 +47,16 @@ export const CandidateModal = ({ candidate, onClose, onStatusUpdate }) => {
             </button>
           </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "20px",
-            }}
-          >
-            <div
+          
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={6}>
+        <div
               style={{
                 backgroundColor: "#374151",
                 padding: "20px",
                 borderRadius: "8px",
                 boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+                
               }}
             >
               <h3 style={{ color: "#FFFFFF", marginBottom: "15px" }}>
@@ -119,7 +115,8 @@ export const CandidateModal = ({ candidate, onClose, onStatusUpdate }) => {
                 ))}
               </div>
             </div>
-
+            </Grid>
+            <Grid item xs={12} md={6}>
             <div
               style={{
                 backgroundColor: "#374151",
@@ -163,7 +160,7 @@ export const CandidateModal = ({ candidate, onClose, onStatusUpdate }) => {
                   padding: "20px",
                   borderRadius: "5px",
                   backgroundColor: "#2D3748",
-                  height: "200px",
+                  height: "115px",
                   overflowY: "auto",
                   color: "#FFFFFF",
                 }}
@@ -174,9 +171,11 @@ export const CandidateModal = ({ candidate, onClose, onStatusUpdate }) => {
                   document viewer.
                 </p>
               </div>
-            </div>
+            </div> 
+            </Grid>
+            </Grid>
           </div>
         </div>
-      </div>
+    
     )
   };

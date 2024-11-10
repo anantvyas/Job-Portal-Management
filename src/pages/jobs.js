@@ -8,6 +8,7 @@ import EditModal from '../components/JobPage/EditModal';
 import { fadeIn, usePageAnimations, animationStyles } from '../components/JobPage/Animations';
 import { generateCandidates } from '../components/JobPage/RandomGenerator';
 import { CandidateModal } from '../components/JobPage/CandidateModal';
+import { JobModal } from '../components/JobPage/JobModal';
 
 const Jobs = () => {
   const navigate = useNavigate();
@@ -497,7 +498,11 @@ const Jobs = () => {
           </Grid>
 
           {selectedJob && (
-            <JobModal job={selectedJob} onClose={() => setSelectedJob(null)} />
+            <JobModal 
+              job={selectedJob} 
+              onClose={() => setSelectedJob(null)}
+              onCandidateSelect={setSelectedCandidate}
+            />
           )}
 
           {selectedCandidate && (
