@@ -119,6 +119,7 @@ const Home = () => {
                 textAlign: "left",
                 lineHeight: "0.8",
                 paddingTop: "5px",
+                paddingBottom: "5px",
               }}
             >
               ENTNT
