@@ -293,7 +293,7 @@ const Home = () => {
                 },
               }}
             >
-              Admin Login
+              Admin
             </button>
           </div>
         </div>

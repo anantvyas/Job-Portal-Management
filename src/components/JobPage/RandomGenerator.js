@@ -41,14 +41,14 @@ export const generateCandidates = (count) => {
       id: index + 1,
       name: `Candidate ${index + 1}`,
       email: `candidate${index + 1}@example.com`,
-      phone: `+1 (555) ${String(Math.floor(Math.random() * 10000)).padStart(4, "0")}`,
+      phone: `+91 (555) ${String(Math.floor(Math.random() * 10000)).padStart(4, "0")}`,
       skills: ["JavaScript", "React", "Node.js", "Python", "SQL"].slice(
         0,
         Math.floor(Math.random() * 3) + 2
       ),
       experience: `${Math.floor(Math.random() * 8) + 2} years`,
       education: "Bachelor in Computer Science",
-      resumeLink: `https://resume.com/candidate${index + 1}`,
+      resumeLink: `https://drive.google.com/file/d/1uiMliYik2KTIgOuf3d7DReoBvu52TP7B/view?usp=drive_link`,
       applicationDate: getRandomDate(),
       status: getRandomStatus(),
     }));
