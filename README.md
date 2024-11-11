@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# Web Hiring Platform Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based application designed for admins to manage job postings, track candidate applications, and create job-specific assessments. This application streamlines the hiring process by providing tools to post jobs, review candidate details, and assign tailored assessments.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+1. **Dashboard for Managing Job Postings**
+   - Admins can view, add, edit, and delete job postings.
+   - Each job listing includes:
+     - Job title
+     - Job description
+     - Number of candidates who have applied
 
-### `npm start`
+2. **Candidate Tracking & Details**
+   - View a list of candidates who have applied for each job.
+   - For each candidate:
+     - Display candidate name, resume link/document, application date, and application status.
+   - Detailed candidate profile view, including:
+     - Contact details, skills, experience, and status update options.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. **Job-Specific Test/Assessment Creation**
+   - Admins can create unique assessments for each job.
+   - On the assessment creation page:
+     - Select job from a dropdown.
+     - Create, add, or edit multiple-choice questions for each job.
+   - Each job has its distinct assessment.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+4. **User Interface & Experience**
+   - Intuitive and responsive design (desktop and mobile-friendly).
+   - Consistent UI using Material-UI or Ant Design.
+   - State management via Redux or React Context API.
+   - Navigation with React Router for easy access to different sections.
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React** for the front-end framework.
+- **Material-UI/Ant Design** for UI components.
+- **Redux/React Context API** for state management.
+- **React Router** for routing.
+- **Local Storage / Mock APIs** for simulated data persistence (optional).
 
-### `npm run build`
+## Setup and Running Instructions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/your-username/project-repo-name
+  
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Run the Application**
+   ```bash
+   npm start
+   ```
+   - The app will run at `http://localhost:3000` by default.
 
-### `npm run eject`
+4. **Build for Production**
+   ```bash
+   npm run build
+   ```
+   - Builds the app for production in the `build` folder.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Deployment
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- The application is deployed on [Platform Name - e.g., Vercel, Netlify, GitHub Pages].
+- Access the live application [here](deployment-link).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Testing & Validation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Tested for performance and error-free functionality.
+- Sample data (e.g., job postings, candidates, assessments) provided to demonstrate the application features.
 
-## Learn More
+## Folder Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `/src` - Contains main source files.
+  - `/components` - Reusable UI components.
+  - `/pages` - Different pages like Dashboard, Candidate Details, and Assessments.
+  - `/redux` or `/context` - For state management.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributing
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-name`.
+3. Make your changes and commit: `git commit -m 'Add some feature'`.
+4. Push to the branch: `git push origin feature-name`.
+5. Submit a pull request.
