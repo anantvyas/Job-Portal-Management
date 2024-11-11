@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { modalOverlay } from "../JobPage/Animations";
 import { Grid } from "@mui/material";
 export const CandidateModal = ({ candidate, onClose, onStatusUpdate }) => {
+    const [isResumeExpanded, setIsResumeExpanded] = useState(false);
+
     const handleStatusChange = (e) => {
       const newStatus = e.target.value;
       candidate.status = newStatus;
@@ -155,21 +157,35 @@ export const CandidateModal = ({ candidate, onClose, onStatusUpdate }) => {
                 Resume Preview
               </h3>
               <div
+                onClick={() => setIsResumeExpanded(!isResumeExpanded)}
                 style={{
-                  border: "1px solid #4B5563",
-                  padding: "20px",
-                  borderRadius: "5px",
-                  backgroundColor: "#2D3748",
-                  height: "115px",
-                  overflowY: "auto",
-                  color: "#FFFFFF",
+                    border: "1px solid #4B5563",
+                    padding: "20px",
+                    borderRadius: "5px",
+                    backgroundColor: "#2D3748",
+                    height: isResumeExpanded ? "80vh" : "115px",
+                    overflowY: "auto",
+                    color: "#FFFFFF",
+                    cursor: "pointer",
+                    transition: "height 0.3s ease",
+                    position: isResumeExpanded ? "fixed" : "relative",
+                    top: isResumeExpanded ? "50%" : "auto",
+                    left: isResumeExpanded ? "50%" : "auto",
+                    transform: isResumeExpanded ? "translate(-50%, -50%)" : "none",
+                    width: isResumeExpanded ? "90%" : "auto",
+                    zIndex: isResumeExpanded ? 1002 : 1,
                 }}
               >
-                <p>Resume preview would be displayed here.</p>
-                <p>
-                  For actual implementation, you would need to integrate with a
-                  document viewer.
-                </p>
+                <iframe
+                    src="https://drive.google.com/file/d/1uiMliYik2KTIgOuf3d7DReoBvu52TP7B/preview"
+                    width="100%"
+                    height="100%"
+                    style={{
+                        border: "none",
+                    }}
+                    title={`${candidate.name}'s Resume`}
+                    allow="autoplay"
+                />
               </div>
             </div> 
             </Grid>
