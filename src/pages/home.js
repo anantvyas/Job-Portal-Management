@@ -135,7 +135,7 @@ const Home = () => {
                 margin: 0,
                 textAlign: "center",
                 lineHeight: "1",
-                paddingBottom: "4px",
+                paddingBottom: "5px",
               }}
             >
               REMOTE TEAMS <span style={{ 
