@@ -122,7 +122,7 @@ const Home = () => {
                 paddingBottom: "5px",
               }}
             >
-              ENTNT
+              MY PORTAL
             </h1>
             <h2
               style={{
